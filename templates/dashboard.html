@@ -1,0 +1,42 @@
+{% extends '_base.html' %}
+
+
+{% block styles %}
+<style>
+    body{
+        background:skyblue;
+    }
+    ul{
+        display:flex;
+        gap:20px;
+    }
+</style>
+{% endblock styles %}
+
+{% block content %}
+    
+    
+    {% if query %}
+        <h1>Search <font color='blue'>{{ query }}</font></h1>    
+    {% else %}
+        <h1>Welcome {{ user.username|title }}</h1>
+        <img src="{{ user.image.url }}" width='40' alt="" srcset="">
+    {% endif %}
+    <div class='display:grid;'>
+        {% for movie in movies %}
+            <div style='display:flex;gap:10px;'>
+                <div>
+                    <img src="{{ movie.movie_poster.url }}" width='100' alt="">
+                </div>
+                <div>
+                    <div style='font-weight:bold;'><a target='_blank' href="{{ movie.url }}">{{ movie.title|title }}</a></div>
+                    <div>{{ movie.description }}</div>
+                    <br>
+                    <div>
+                        Created by {{ movie.user.username|title }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

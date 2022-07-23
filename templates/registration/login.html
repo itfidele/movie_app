@@ -1,0 +1,23 @@
+
+<form method='post'>
+    <h3>Sign In</h3>
+    {% csrf_token %}
+    <div style='display:grid; gap:8px;'>
+
+        {% if form.errors %}
+            <font color='red'>username or password are incorrect, please try again!</font>
+        {% endif %}
+        <div>
+            <label for="password">username</label>
+            <input type="text" name="username" id="username">
+        </div>
+        <div>
+            <label for="password">password</label>
+            <input type="password" name='password' id='password'>
+        </div>
+        
+    </div>
+    <a href="{% url 'signup' %}">Create acccount</a>
+    <button type="submit" name='submit'>Login</button>
+    
+</form>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% block styles %}
+    {% endblock styles %}
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li><a href="{% url 'list_movies' %}">My Fav Movies</a></li>
+            <li><a href="{% url 'add_movie' %}">Add Movie</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li>
+                <form action="{% url 'dashboard' %}" method='get'>
+                    <input type="text" name='search'>
+                    <button type='submit'>search movie</button>
+                </form>
+            </li>
+        </ul>
+    </header>
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% extends '_base.html' %}
+
+{% block styles %}
+<style>
+    body{
+        background:skyblue;
+    }
+    ul{
+        display:flex;
+        gap:20px;
+    }
+</style>
+{% endblock styles %}
+
+{% block content %}
+    <form enctype="multipart/form-data" method='post'>
+        {% csrf_token %}
+        {{ form.errors }}
+        {{ form.as_p }}
+        <button name='submit' type="submit">Add Movie</button>
+    </form>
+{% endblock content %}

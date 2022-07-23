@@ -1,0 +1,25 @@
+{% extends '_base.html' %}
+
+{% block styles %}
+<style>
+    body{
+        background:skyblue;
+    }
+    ul{
+        display:flex;
+        gap:20px;
+    }
+</style>
+{% endblock styles %}
+
+{% block content %}
+    {% for movie in object_list %}
+        <div style='display:flex;gap:10px;'>
+            <div><img src="{{ movie.movie_poster.url }}" width='100' alt=""></div>
+            <div>
+                <div style='font-weight:bold;'>{{ movie.title|title }}</div>
+                <div>{{ movie.description }}</div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock content %}
