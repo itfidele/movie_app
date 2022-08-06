@@ -9,9 +9,19 @@ class User(AbstractUser):
         ('Female','Female')
     )
     gender=models.CharField(max_length=30,choices=GENDER)
-    age=models.IntegerField()
+    age=models.IntegerField(null=True,blank=False)
     created_at = models.DateTimeField(auto_now=True)
     image=models.ImageField(upload_to='members')
+
+
+class Category(models.Model):
+    name=models.CharField(max_length=100)
+
+    def __str__(self) -> str:
+        return self.name
+
+    def movies(self):
+        return Movies.objects.filter(category=self)
 
 
 class Movies(models.Model):
@@ -22,5 +32,10 @@ class Movies(models.Model):
     description = models.TextField()
     movie_poster= models.ImageField(upload_to = 'movies')
     url = models.URLField()
+    category = models.ForeignKey(Category,on_delete=models.CASCADE,related_name='movies',null=True)
     created_at = models.DateTimeField(auto_now=True)
+
+
+    def __str__(self) -> str:
+        return self.title
     

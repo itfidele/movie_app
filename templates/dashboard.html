@@ -31,6 +31,7 @@
                 <div>
                     <div style='font-weight:bold;'><a target='_blank' href="{{ movie.url }}">{{ movie.title|title }}</a></div>
                     <div>{{ movie.description }}</div>
+                    <div href="{{ movie.category.get_absolute_url }}" style='background:green;padding:4px;max-width:100px;text-align:center;margin:4px;color:white;'>{{ movie.category.name }}</div>
                     <br>
                     <div>
                         Created by {{ movie.user.username|title }}

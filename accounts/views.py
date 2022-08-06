@@ -2,7 +2,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from requests import request
-from accounts.models import Movies
+from accounts.models import Category, Movies
 from .forms import MovieForm, RegistrationForm
 from django.views.generic import CreateView,ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -29,7 +29,10 @@ class FavMovies(LoginRequiredMixin,ListView):
         return Movies.objects.filter(user=self.request.user)
 
 
-
+def all_categories(request):
+    context={}
+    context['categories'] = Category.objects.all()
+    return render(request,'category.html',context)
 
 class AddMovie(LoginRequiredMixin,CreateView):
     model = Movies

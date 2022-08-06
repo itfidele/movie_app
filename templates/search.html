@@ -24,6 +24,7 @@
                 <div>
                     <div style='font-weight:bold;'><a target='_blank' href="{{ movie.url }}">{{ movie.title|title }}</a></div>
                     <div>{{ movie.description }}</div>
+                    <div>{{ movie.category.name }}</div>
                     <br>
                     <div>
                         Created by {{ movie.user.username|title }}

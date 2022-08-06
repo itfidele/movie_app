@@ -1,6 +1,4 @@
-from secrets import choice
 from django import forms
-from matplotlib.pyplot import title
 from .models import Movies, User
 from django.forms  import ValidationError
 # class SignUpForm(forms.ModelForm):
@@ -14,7 +12,7 @@ class MovieForm(forms.ModelForm):
 
     class Meta:
         model = Movies
-        fields = ['title','actors','release_date','description','movie_poster','url']
+        fields = ['title','actors','category','release_date','description','movie_poster','url']
 
     
 

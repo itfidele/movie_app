@@ -1,0 +1,23 @@
+{% extends '_base.html' %}
+
+{% block styles %}
+<style>
+    body{
+        background:skyblue;
+    }
+    ul{
+        display:flex;
+        gap:20px;
+    }
+</style>
+{% endblock styles %}
+
+{% block content %}
+<h1>Categories</h1>
+<ol>
+    {% for category in categories %}
+        <li>{{ category.name }}</li>
+    {% endfor %}
+</ol>
+
+{% endblock content %}
