@@ -16,7 +16,13 @@
 <h1>Categories</h1>
 <ol>
     {% for category in categories %}
-        <li>{{ category.name }}</li>
+        <li>{{ category.name }} - {{ category.movies.count }}
+            <ul>
+                {% for movie in category.movies.all %}
+                    <li><a href="{{ movie.url }}">{{ movie.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
     {% endfor %}
 </ol>
 

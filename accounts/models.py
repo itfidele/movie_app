@@ -22,6 +22,7 @@ class Category(models.Model):
 
     def movies(self):
         return Movies.objects.filter(category=self)
+    
 
 
 class Movies(models.Model):
